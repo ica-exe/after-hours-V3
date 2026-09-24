@@ -1,8 +1,3 @@
-/* ====================================================================
-   "JUST BETWEEN US ♡" & FINAL PAGE SUNFLOWER KEEPSAKE STYLES
-   ==================================================================== */
-
-/* ── Up Next Section on Love Letter Page ── */
 .letter-up-next-block {
   display: flex;
   flex-direction: column;
@@ -12,7 +7,6 @@
   gap: 0.35rem;
   z-index: 20;
 }
-
 .letter-up-next-label {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.72rem;
@@ -21,13 +15,11 @@
   text-transform: uppercase;
   color: #9F1239;
 }
-
 .letter-up-next-teaser {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: 1.3rem;
   color: #B94F78;
 }
-
 .letter-between-us-btn {
   font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
   font-size: 0.82rem;
@@ -50,7 +42,6 @@
   user-select: none;
   cursor: pointer;
 }
-
 .letter-between-us-btn:hover {
   transform: translateY(-2px);
   background: #FFFFFF;
@@ -58,8 +49,6 @@
   border-color: rgba(236, 72, 153, 0.6);
   box-shadow: 0 6px 20px rgba(244, 114, 182, 0.28), 0 0 12px rgba(251, 207, 232, 0.5);
 }
-
-/* ── "JUST BETWEEN US" View Screen Container ── */
 #between-us-view {
   display: none;
   opacity: 0;
@@ -75,18 +64,14 @@
   padding-bottom: 3rem;
   box-sizing: border-box;
 }
-
 #between-us-view.view-entering {
   display: block;
 }
-
 #between-us-view.view-visible {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Upper-Left Circular Back Button */
 #between-us-view .song-back-btn.between-us-back-btn {
   position: fixed;
   top: 1.5rem;
@@ -94,8 +79,6 @@
   z-index: 200;
   text-decoration: none;
 }
-
-/* Clean Top Navigation Header */
 .between-us-top-header {
   display: flex;
   align-items: center;
@@ -108,7 +91,6 @@
   box-sizing: border-box;
   z-index: 10;
 }
-
 .between-us-top-title {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: clamp(1.8rem, 3.8vh, 2.3rem);
@@ -117,8 +99,6 @@
   margin: 0;
   font-weight: 600;
 }
-
-/* ── Main Interactive Stage & Card ── */
 .between-us-stage {
   display: flex;
   flex-direction: column;
@@ -132,8 +112,6 @@
   z-index: 10;
   position: relative;
 }
-
-/* Central Interactive Keepsake Card Container */
 .between-us-card-wrapper {
   position: relative;
   width: 100%;
@@ -152,8 +130,6 @@
   align-items: center;
   text-align: center;
 }
-
-/* Inner Ornamental Dashed Border */
 .between-us-card-border {
   position: absolute;
   inset: 12px;
@@ -161,8 +137,6 @@
   border-radius: 16px;
   pointer-events: none;
 }
-
-/* Card Header Icon & Subtitles */
 .between-us-heart-icon {
   font-size: 2.4rem;
   color: #EC4899;
@@ -170,7 +144,6 @@
   filter: drop-shadow(0 4px 12px rgba(244, 114, 182, 0.4));
   animation: pulse-pink 2.2s infinite ease-in-out;
 }
-
 .between-us-card-headline {
   font-family: var(--font-script, 'Caveat', cursive);
   font-size: clamp(1.8rem, 3.6vh, 2.3rem);
@@ -178,7 +151,6 @@
   margin: 0 0 0.3rem 0;
   font-weight: 600;
 }
-
 .between-us-card-sub {
   font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-style: italic;
@@ -186,8 +158,6 @@
   color: #9D174D;
   margin-bottom: 1.5rem;
 }
-
-/* Interactive Secret Prompts / Tabs Bar */
 .between-us-tabs-bar {
   display: flex;
   flex-wrap: wrap;
@@ -196,7 +166,6 @@
   margin-bottom: 1.5rem;
   z-index: 5;
 }
-
 .between-us-tab-btn {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.75rem;
@@ -211,21 +180,17 @@
   transition: all 0.25s ease;
   outline: none;
 }
-
 .between-us-tab-btn:hover {
   background: #FFF0F5;
   color: #EC4899;
   border-color: #EC4899;
 }
-
 .between-us-tab-btn.active {
   background: linear-gradient(135deg, #F472B6 0%, #EC4899 100%);
   color: #ffffff;
   border-color: #EC4899;
   box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
 }
-
-/* Active Secret Note Content Box */
 .between-us-note-box {
   width: 100%;
   min-height: 180px;
@@ -242,7 +207,6 @@
   z-index: 5;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .between-us-note-title {
   font-family: var(--font-script, 'Caveat', cursive);
   font-size: 1.45rem;
@@ -250,7 +214,6 @@
   margin-bottom: 0.8rem;
   font-weight: 600;
 }
-
 .between-us-note-body {
   font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-size: clamp(0.98rem, 2vh, 1.1rem);
@@ -259,15 +222,12 @@
   white-space: pre-line;
   margin: 0;
 }
-
 .between-us-note-motif {
   font-size: 0.85rem;
   color: #F472B6;
   letter-spacing: 0.3em;
   margin-top: 1rem;
 }
-
-/* ── Up Next Block on Just Between Us Page ── */
 .between-us-up-next-block {
   display: flex;
   flex-direction: column;
@@ -277,7 +237,6 @@
   gap: 0.35rem;
   z-index: 20;
 }
-
 .between-us-up-next-label {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.72rem;
@@ -286,13 +245,11 @@
   text-transform: uppercase;
   color: #9F1239;
 }
-
 .between-us-up-next-teaser {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: 1.3rem;
   color: #B94F78;
 }
-
 .between-us-final-btn {
   font-family: var(--font-sans, 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif);
   font-size: 0.82rem;
@@ -315,7 +272,6 @@
   user-select: none;
   cursor: pointer;
 }
-
 .between-us-final-btn:hover {
   transform: translateY(-2px);
   background: #FFFFFF;
@@ -323,8 +279,6 @@
   border-color: rgba(236, 72, 153, 0.6);
   box-shadow: 0 6px 20px rgba(244, 114, 182, 0.28), 0 0 12px rgba(251, 207, 232, 0.5);
 }
-
-/* ── FINAL PAGE VIEW STYLES (Pastel Pink Romantic Keepsake) ── */
 #final-view {
   display: none;
   opacity: 0;
@@ -340,17 +294,14 @@
   padding-bottom: 3rem;
   box-sizing: border-box;
 }
-
 #final-view.view-entering {
   display: block;
 }
-
 #final-view.view-visible {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
-
 #final-view .song-back-btn.final-back-btn {
   position: fixed;
   top: 1.5rem;
@@ -358,8 +309,6 @@
   z-index: 200;
   text-decoration: none;
 }
-
-/* Corner Ribbon Bows */
 .final-corner-bow {
   position: absolute;
   top: 2rem;
@@ -369,16 +318,13 @@
   pointer-events: none;
   z-index: 5;
 }
-
 .final-corner-bow.left {
   left: 3rem;
 }
-
 .final-corner-bow.right {
   right: 3rem;
   transform: scaleX(-1);
 }
-
 .final-stage-wrapper {
   display: flex;
   flex-direction: column;
@@ -393,8 +339,6 @@
   position: relative;
   text-align: center;
 }
-
-/* 1. "♡ FOR YOU, REALLY" Pill Header */
 .final-top-pill {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.72rem;
@@ -412,8 +356,6 @@
   box-shadow: 0 4px 14px rgba(244, 114, 182, 0.15);
   margin-bottom: 1rem;
 }
-
-/* 2. "here, these are for you, my love" Main Heading */
 .final-main-heading {
   font-family: var(--font-serif, 'Cormorant Garamond', 'Playfair Display', Georgia, serif);
   font-size: clamp(1.8rem, 4vh, 2.5rem);
@@ -422,8 +364,6 @@
   font-weight: 600;
   letter-spacing: 0.01em;
 }
-
-/* 3. Animated Sunflower Cats SVG Container */
 .final-illustration-container {
   position: relative;
   display: flex;
@@ -434,13 +374,11 @@
   width: 100%;
   max-width: 320px;
 }
-
 .final-sunflower-cats-svg {
   width: 260px;
   height: 140px;
   filter: drop-shadow(0 6px 15px rgba(244, 114, 182, 0.22));
 }
-
 .final-floating-accent {
   font-family: var(--font-script, 'Caveat', cursive);
   font-size: 1.15rem;
@@ -450,20 +388,16 @@
   pointer-events: none;
   user-select: none;
 }
-
 .final-floating-accent.accent-left {
   left: -10px;
   top: 25px;
   transform: rotate(-9deg);
 }
-
 .final-floating-accent.accent-right {
   right: -10px;
   top: 45px;
   transform: rotate(7deg);
 }
-
-/* 4. Exact Future Message */
 .final-future-message {
   font-family: var(--font-serif, 'Cormorant Garamond', 'Playfair Display', Georgia, serif);
   font-size: clamp(1.25rem, 2.8vh, 1.65rem);
@@ -476,8 +410,6 @@
   max-width: 620px;
   letter-spacing: 0.01em;
 }
-
-/* 5. "— yours, always" Closing Signature */
 .final-closing-signature {
   font-family: var(--font-script, 'Caveat', cursive);
   font-size: 1.55rem;
@@ -485,58 +417,45 @@
   margin-top: 0.8rem;
   letter-spacing: 0.02em;
 }
-
-/* 6. Sunflower SVG Animations */
 .cat-left {
   animation: catBobLeft 3.5s ease-in-out infinite;
   transform-origin: 92px 125px;
 }
-
 .cat-right {
   animation: catBobRight 3.5s ease-in-out infinite;
   transform-origin: 168px 125px;
 }
-
 .sunflower-bouquet {
   animation: bouquetOffer 3.5s ease-in-out infinite;
   transform-origin: 100px 112px;
 }
-
 .floating-heart {
   animation: floatHeart 2.8s ease-in-out infinite;
   transform-origin: 130px 55px;
 }
-
 .sparkle-star {
   animation: sparkleTwinkle 2s ease-in-out infinite alternate;
 }
-
 @keyframes catBobLeft {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-3px) rotate(-1.5deg); }
 }
-
 @keyframes catBobRight {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-2px) rotate(1.5deg); }
 }
-
 @keyframes bouquetOffer {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-4px) rotate(-3deg) scale(1.03); }
 }
-
 @keyframes floatHeart {
   0%, 100% { transform: translateY(0) scale(1); opacity: 0.9; }
   50% { transform: translateY(-6px) scale(1.12); opacity: 1; }
 }
-
 @keyframes sparkleTwinkle {
   0% { opacity: 0.4; transform: scale(0.8); }
   100% { opacity: 1; transform: scale(1.2); }
 }
-
-/* Responsive Adjustments */
 @media (max-width: 600px) {
   .between-us-card-wrapper {
     padding: 2rem 1.4rem;

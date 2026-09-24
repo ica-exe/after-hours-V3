@@ -1,8 +1,3 @@
-/* ====================================================================
-   DREAMY ROMANTIC LOVE LETTER JOURNAL "FOR ELIE ♡" STYLES
-   Theme: Open Keepsake Book, Delicate Serif Typography & Editorial Aesthetic
-   ==================================================================== */
-
 #letter-view {
   display: none;
   opacity: 0;
@@ -18,18 +13,14 @@
   padding-bottom: 3rem;
   box-sizing: border-box;
 }
-
 #letter-view.view-entering {
   display: block;
 }
-
 #letter-view.view-visible {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Back Button matching Song / Gallery / Wheel page */
 #letter-view .song-back-btn.letter-back-btn {
   position: fixed;
   top: 1.5rem;
@@ -37,8 +28,6 @@
   z-index: 200;
   text-decoration: none;
 }
-
-/* Clean Top Navigation Header */
 .letter-top-header {
   display: flex;
   align-items: center;
@@ -51,7 +40,6 @@
   box-sizing: border-box;
   z-index: 10;
 }
-
 .letter-top-title {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: clamp(1.8rem, 3.8vh, 2.3rem);
@@ -60,8 +48,6 @@
   margin: 0;
   font-weight: 600;
 }
-
-/* ── Main Book Stage ── */
 .letter-book-stage {
   display: flex;
   flex-direction: column;
@@ -76,8 +62,6 @@
   position: relative;
   perspective: 1600px;
 }
-
-/* Open Keepsake Journal Card Container */
 .letter-open-book-wrapper {
   position: relative;
   width: 100%;
@@ -88,8 +72,6 @@
   justify-content: center;
   transform-style: preserve-3d;
 }
-
-/* Physical Hardcover Outer Shell Backdrop */
 .letter-hardcover-base {
   position: absolute;
   inset: -12px -16px -16px -16px;
@@ -103,8 +85,6 @@
   pointer-events: none;
   z-index: 1;
 }
-
-/* Stacked Layered Paper Edge Stacks */
 .letter-page-stack-left {
   position: absolute;
   top: 10px;
@@ -123,7 +103,6 @@
   border-radius: 12px 0 0 12px;
   box-shadow: inset -2px 0 5px rgba(131, 24, 67, 0.18);
 }
-
 .letter-page-stack-right {
   position: absolute;
   top: 10px;
@@ -142,8 +121,6 @@
   border-radius: 0 12px 12px 0;
   box-shadow: inset 2px 0 5px rgba(131, 24, 67, 0.18);
 }
-
-/* 3D Open Physical Book Spread */
 .letter-open-book {
   position: relative;
   z-index: 2;
@@ -158,8 +135,6 @@
   transform-style: preserve-3d;
   overflow: visible;
 }
-
-/* Left & Right Page Panels */
 .letter-page-side {
   width: 50%;
   position: relative;
@@ -171,20 +146,16 @@
   justify-content: space-between;
   overflow: hidden;
 }
-
 .letter-page-left {
   border-radius: 14px 2px 2px 14px;
   border-right: 1px solid rgba(236, 72, 153, 0.12);
   box-shadow: inset -15px 0 25px -10px rgba(131, 24, 67, 0.08);
 }
-
 .letter-page-right {
   border-radius: 2px 14px 14px 2px;
   border-left: 1px solid rgba(236, 72, 153, 0.12);
   box-shadow: inset 15px 0 25px -10px rgba(131, 24, 67, 0.08);
 }
-
-/* Page Inner Layout */
 .letter-page-inner {
   width: 100%;
   height: 100%;
@@ -195,8 +166,6 @@
   position: relative;
   z-index: 2;
 }
-
-/* Left Page Decorative Branding & Layout */
 .letter-left-body {
   display: flex;
   flex-direction: column;
@@ -207,7 +176,6 @@
   gap: 0.8rem;
   padding: 1rem 0;
 }
-
 .letter-left-tag {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.7rem;
@@ -215,26 +183,22 @@
   font-weight: 700;
   color: #DB2777;
 }
-
 .letter-left-sub {
   font-family: var(--font-script, 'Caveat', cursive);
   font-size: 0.95rem;
   color: #B94F78;
 }
-
 .letter-left-heart {
   font-size: 2.2rem;
   margin-bottom: 0.2rem;
   filter: drop-shadow(0 3px 10px rgba(244, 114, 182, 0.35));
 }
-
 .letter-left-title {
   font-family: var(--font-script, 'Caveat', cursive);
   font-size: 1.55rem;
   color: #831843;
   font-weight: 600;
 }
-
 .letter-left-quote {
   font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-style: italic;
@@ -244,14 +208,11 @@
   max-width: 85%;
   margin: 0.3rem 0;
 }
-
 .letter-left-motif {
   font-size: 0.8rem;
   color: #EC4899;
   letter-spacing: 0.3em;
 }
-
-/* Middle Spine Seam & Hanging Ribbon Bookmark */
 .letter-spine-center {
   position: absolute;
   top: 0;
@@ -264,7 +225,6 @@
   display: flex;
   justify-content: center;
 }
-
 .letter-spine-groove {
   width: 100%;
   height: 100%;
@@ -277,7 +237,6 @@
     rgba(131, 24, 67, 0.15) 100%
   );
 }
-
 .letter-ribbon-bookmark {
   position: absolute;
   bottom: -28px;
@@ -288,8 +247,6 @@
   box-shadow: 0 5px 14px rgba(190, 24, 93, 0.45);
   z-index: 12;
 }
-
-/* Page Header & Number */
 .letter-page-top-bar {
   display: flex;
   align-items: center;
@@ -298,7 +255,6 @@
   padding-bottom: 0.6rem;
   margin-bottom: 1rem;
 }
-
 .letter-page-number-tag {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.75rem;
@@ -306,14 +262,11 @@
   font-weight: 700;
   color: #DB2777;
 }
-
 .letter-page-heading {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: 1.35rem;
   color: #B94F78;
 }
-
-/* Letter Body Paragraph */
 .letter-body-content {
   font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-size: clamp(0.95rem, 2vh, 1.1rem);
@@ -326,16 +279,12 @@
   justify-content: center;
   padding: 0.4rem 0.2rem;
 }
-
 .letter-body-content p {
   margin-bottom: 0.85rem;
 }
-
 .letter-body-content p:last-child {
   margin-bottom: 0;
 }
-
-/* Decorative Footer Motif */
 .letter-page-bottom-bar {
   display: flex;
   align-items: center;
@@ -344,15 +293,12 @@
   padding-top: 0.6rem;
   margin-top: 1rem;
 }
-
 .letter-motif-text {
   font-family: var(--font-sans, sans-serif);
   font-size: 0.8rem;
   color: #EC4899;
   letter-spacing: 0.3em;
 }
-
-/* ── 3D Physical Turning Leaf Styles ── */
 .letter-turning-leaf {
   position: absolute;
   top: 0;
@@ -363,17 +309,14 @@
   pointer-events: none;
   display: none;
 }
-
 .letter-turning-leaf.turning-next {
   left: 50%;
   transform-origin: left center;
 }
-
 .letter-turning-leaf.turning-prev {
   left: 0;
   transform-origin: right center;
 }
-
 .leaf-face {
   position: absolute;
   inset: 0;
@@ -385,19 +328,15 @@
   overflow: hidden;
   box-shadow: 0 12px 35px rgba(131, 24, 67, 0.2);
 }
-
 .leaf-front {
   z-index: 2;
   border-radius: 2px 14px 14px 2px;
 }
-
 .leaf-back {
   z-index: 1;
   transform: rotateY(180deg);
   border-radius: 14px 2px 2px 14px;
 }
-
-/* Dynamic Shadow Overlay under turning leaf */
 .letter-leaf-shadow {
   position: absolute;
   top: 0;
@@ -407,18 +346,14 @@
   pointer-events: none;
   opacity: 0;
 }
-
 .letter-leaf-shadow.shadow-right {
   left: 50%;
   background: linear-gradient(to right, rgba(131, 24, 67, 0.28) 0%, transparent 100%);
 }
-
 .letter-leaf-shadow.shadow-left {
   left: 0;
   background: linear-gradient(to left, rgba(131, 24, 67, 0.28) 0%, transparent 100%);
 }
-
-/* ── Interactive Page Turning Controls ── */
 .letter-nav-wrapper {
   display: flex;
   align-items: center;
@@ -426,7 +361,6 @@
   gap: 1.5rem;
   z-index: 20;
 }
-
 .letter-nav-arrow-btn {
   width: 44px;
   height: 44px;
@@ -448,7 +382,6 @@
   outline: none;
   user-select: none;
 }
-
 .letter-nav-arrow-btn:hover:not(:disabled) {
   transform: scale(1.08);
   background: rgba(255, 255, 255, 0.98);
@@ -456,13 +389,11 @@
   border-color: rgba(236, 72, 153, 0.75);
   box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3);
 }
-
 .letter-nav-arrow-btn:disabled {
   opacity: 0.3;
   cursor: default;
   transform: none !important;
 }
-
 .letter-page-counter {
   font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-size: 1.05rem;
@@ -478,8 +409,6 @@
   box-shadow: 0 4px 15px rgba(233, 104, 160, 0.12);
   user-select: none;
 }
-
-/* Responsive Styles */
 @media (max-width: 768px) {
   .letter-open-book-wrapper {
     max-width: 100%;
@@ -494,7 +423,6 @@
     font-size: 1.8rem;
   }
 }
-
 @media (max-width: 520px) {
   .letter-top-header {
     padding-top: 3.5rem;

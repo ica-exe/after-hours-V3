@@ -1,7 +1,3 @@
-/**
- * "JUST BETWEEN US ♡" — INTERACTIVE SECRET NOTES CONTROLLER
- */
-
 const elieSecretNotes = [
   {
     id: "promise",
@@ -33,31 +29,24 @@ life gives us another chance..`,
     motif: "✦ ✨ ✦"
   }
 ];
-
 class JustBetweenUsController {
   constructor() {
     this.notes = elieSecretNotes;
     this.currentNoteIndex = 0;
-
-    // DOM Elements
     this.tabsContainer = document.getElementById('between-us-tabs-container');
     this.noteTitle = document.getElementById('between-us-note-title');
     this.noteBody = document.getElementById('between-us-note-body');
     this.noteMotif = document.getElementById('between-us-note-motif');
     this.noteBox = document.getElementById('between-us-note-box');
-
     this.init();
   }
-
   init() {
     this.renderTabs();
     this.renderNote(0);
   }
-
   renderTabs() {
     if (!this.tabsContainer) return;
     this.tabsContainer.innerHTML = '';
-
     this.notes.forEach((note, index) => {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -67,20 +56,15 @@ class JustBetweenUsController {
       this.tabsContainer.appendChild(btn);
     });
   }
-
   switchNote(index) {
     if (index === this.currentNoteIndex || index < 0 || index >= this.notes.length) return;
-
     if (this.noteBox) {
       this.noteBox.style.opacity = '0';
       this.noteBox.style.transform = 'translateY(8px)';
     }
-
     setTimeout(() => {
       this.currentNoteIndex = index;
       this.renderNote(index);
-
-      // Update active tab buttons
       const tabBtns = this.tabsContainer ? this.tabsContainer.querySelectorAll('.between-us-tab-btn') : [];
       tabBtns.forEach((btn, idx) => {
         if (idx === index) {
@@ -89,23 +73,18 @@ class JustBetweenUsController {
           btn.classList.remove('active');
         }
       });
-
       if (this.noteBox) {
         this.noteBox.style.opacity = '1';
         this.noteBox.style.transform = 'translateY(0)';
       }
     }, 200);
   }
-
   renderNote(index) {
     const note = this.notes[index];
     if (!note) return;
-
     if (this.noteTitle) this.noteTitle.textContent = note.title;
     if (this.noteBody) this.noteBody.textContent = note.body;
     if (this.noteMotif) this.noteMotif.textContent = note.motif;
   }
 }
-
-// Global initialization helper
 window.JustBetweenUsController = JustBetweenUsController;

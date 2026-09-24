@@ -1,8 +1,3 @@
-/**
-AUDIO PLAYER ENGINE & INTERACTIVE PLAYLIST
- */
-
-// Global state container across the session
 if (!window.__ROMANTIC_AUDIO_STATE__) {
   window.__ROMANTIC_AUDIO_STATE__ = {
     audio: new Audio(),
@@ -61,16 +56,12 @@ if (!window.__ROMANTIC_AUDIO_STATE__) {
     boundGlobalEvents: false
   };
 }
-
 const audioState = window.__ROMANTIC_AUDIO_STATE__;
-
 class AudioPlayerController {
   constructor(config) {
     this.config = config || {};
     this.audio = audioState.audio;
     this.hasError = false;
-
-    // UI Elements
     this.domAudio = document.getElementById('audioPlayer');
     this.playerContainer = document.getElementById('romantic-audio-player');
     this.coverImg = document.getElementById('player-cover-img');
@@ -82,40 +73,28 @@ class AudioPlayerController {
     this.progressBar = document.getElementById('player-progress');
     this.timeCurrent = document.getElementById('player-time-current');
     this.timeDuration = document.getElementById('player-time-duration');
-    
-    // Playlist UI Elements
     this.playlistToggleBtn = document.getElementById('playlist-toggle-btn');
     this.playlistCard = document.getElementById('playlist-card');
     this.playlistItemsContainer = document.getElementById('playlist-items');
     this.addSongBtn = document.getElementById('add-song-btn');
     this.audioFileInput = document.getElementById('audio-file-input');
   }
-
   get currentSong() {
     return audioState.playlist[audioState.currentIndex] || audioState.playlist[0];
   }
-
   get isPlaying() {
     return !this.audio.paused && !this.audio.ended && this.audio.readyState > 2;
   }
-
   init() {
-    // If an in-DOM audio element exists, sync it
     if (this.domAudio && this.domAudio !== this.audio) {
-      // Use single persistent audio instance
     }
-
-    // Set initial audio source if none set
     if (!this.audio.src || this.audio.src === '' || this.audio.src === window.location.href) {
       this.loadSong(audioState.currentIndex, false);
     } else {
       this.syncPlayerUI();
     }
-
-    // Attach audio element event listeners once globally
     if (!audioState.boundGlobalEvents) {
       audioState.boundGlobalEvents = true;
-
       this.audio.addEventListener('timeupdate', () => this.onTimeUpdate());
       this.audio.addEventListener('loadedmetadata', () => this.onMetadataLoaded());
       this.audio.addEventListener('play', () => this.onPlaybackStateChange());
@@ -123,23 +102,18 @@ class AudioPlayerController {
       this.audio.addEventListener('ended', () => this.onSongEnded());
       this.audio.addEventListener('error', (e) => this.onAudioError(e));
     }
-
     this.bindControls();
     this.renderPlaylist();
     this.syncPlaylistToggleUI();
     this.onTimeUpdate();
   }
-
   bindControls() {
-    // 1. Play / Pause Button in main player
     if (this.playBtn) {
       this.playBtn.onclick = (e) => {
         e.preventDefault();
         this.togglePlay();
       };
     }
-
-    // 2. Main Player Favorite Heart Button
     if (this.favoriteBtn) {
       this.favoriteBtn.onclick = (e) => {
         e.preventDefault();
@@ -151,8 +125,6 @@ class AudioPlayerController {
         }
       };
     }
-
-    // 4. Seeking on Progress Slider
     if (this.progressBar) {
       const handleSeek = (e) => {
         const val = parseFloat(e.target.value);
@@ -162,12 +134,9 @@ class AudioPlayerController {
         }
         this.progressBar.style.setProperty('--progress', `${val}%`);
       };
-
       this.progressBar.oninput = handleSeek;
       this.progressBar.onchange = handleSeek;
     }
-
-    // 5. Playlist Expand/Collapse Toggle Button
     if (this.playlistToggleBtn) {
       this.playlistToggleBtn.onclick = (e) => {
         e.preventDefault();
@@ -175,23 +144,17 @@ class AudioPlayerController {
         this.syncPlaylistToggleUI();
       };
     }
-
-    // 6. "+ Add Songs" File Upload Handler
     if (this.addSongBtn && this.audioFileInput) {
       this.addSongBtn.onclick = (e) => {
         e.preventDefault();
         this.audioFileInput.click();
       };
-
       this.audioFileInput.onchange = (e) => {
         const files = Array.from(e.target.files || []);
         if (files.length === 0) return;
-
         let firstNewIndex = -1;
-
         files.forEach((file) => {
           const audioUrl = URL.createObjectURL(file);
-          // Parse title from file name without extension
           const cleanTitle = file.name.replace(/\.[^/.]+$/, '').trim() || 'Untitled Song';
           const newSong = {
             id: 'local-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
@@ -202,51 +165,38 @@ class AudioPlayerController {
             isLocal: true,
             favorite: false
           };
-
           audioState.playlist.push(newSong);
           if (firstNewIndex === -1) {
             firstNewIndex = audioState.playlist.length - 1;
           }
         });
-
         this.renderPlaylist();
-
-        // Immediately select and play the first newly added song
         if (firstNewIndex !== -1) {
           this.selectSong(firstNewIndex, true);
         }
-
-        // Reset file input so same file can be added again if desired
         this.audioFileInput.value = '';
       };
     }
   }
-
   loadSong(index, shouldPlay = false) {
     if (index < 0 || index >= audioState.playlist.length) return;
-
     audioState.currentIndex = index;
     const song = this.currentSong;
     this.hasError = false;
-
     if (this.audio.src !== song.src) {
       this.audio.src = song.src;
       this.audio.currentTime = 0;
     }
-
     this.syncPlayerUI();
     this.renderPlaylist();
-
     if (shouldPlay) {
       this.play();
     }
   }
-
   selectSong(index, shouldPlay = true) {
     const wasPlaying = !this.audio.paused;
     this.loadSong(index, shouldPlay || wasPlaying);
   }
-
   togglePlay() {
     if (this.isPlaying) {
       this.pause();
@@ -254,10 +204,8 @@ class AudioPlayerController {
       this.play();
     }
   }
-
   play() {
     if (this.hasError) return;
-
     const playPromise = this.audio.play();
     if (playPromise !== undefined) {
       playPromise
@@ -270,26 +218,21 @@ class AudioPlayerController {
         });
     }
   }
-
   pause() {
     this.audio.pause();
     this.onPlaybackStateChange();
   }
-
   nextSong() {
     const nextIdx = (audioState.currentIndex + 1) % audioState.playlist.length;
     this.selectSong(nextIdx, true);
   }
-
   previousSong() {
     const prevIdx = (audioState.currentIndex - 1 + audioState.playlist.length) % audioState.playlist.length;
     this.selectSong(prevIdx, true);
   }
-
   onSongEnded() {
     this.nextSong();
   }
-
   onAudioError(e) {
     console.warn("Audio load error for song:", this.currentSong);
     this.hasError = true;
@@ -298,16 +241,13 @@ class AudioPlayerController {
     }
     this.onPlaybackStateChange();
   }
-
   onTimeUpdate() {
     if (!this.audio.duration || isNaN(this.audio.duration)) return;
-
     const percent = (this.audio.currentTime / this.audio.duration) * 100;
     if (this.progressBar) {
       this.progressBar.value = percent;
       this.progressBar.style.setProperty('--progress', `${percent}%`);
     }
-
     if (this.timeCurrent) {
       this.timeCurrent.textContent = this.formatTime(this.audio.currentTime);
     }
@@ -315,7 +255,6 @@ class AudioPlayerController {
       this.timeDuration.textContent = this.formatTime(this.audio.duration);
     }
   }
-
   onMetadataLoaded() {
     this.hasError = false;
     if (this.timeDuration && this.audio.duration && !isNaN(this.audio.duration)) {
@@ -323,16 +262,13 @@ class AudioPlayerController {
     }
     this.onTimeUpdate();
   }
-
   onPlaybackStateChange() {
     this.syncPlayerUI();
     this.updatePlaylistActiveIndicators();
   }
-
   syncPlayerUI() {
     const song = this.currentSong;
     if (!song) return;
-
     if (this.coverImg) {
       this.coverImg.src = song.cover || 'assets/song-cover.svg';
     }
@@ -342,24 +278,18 @@ class AudioPlayerController {
     if (this.artistName) {
       this.artistName.textContent = song.artist.includes('♡') ? song.artist : `${song.artist} ♡`;
     }
-
     const playing = !this.audio.paused && !this.audio.ended;
-
     if (this.playerContainer) {
       this.playerContainer.classList.toggle('is-playing', playing);
     }
-
     if (this.playBtn) {
       this.playBtn.innerHTML = `<span class="player-btn-icon ${playing ? 'icon-pause' : 'icon-play'}">${playing ? 'Ⅱ' : '▶'}</span>`;
     }
-
     if (this.statusBadge) {
       this.statusBadge.textContent = playing ? '♡ PLAYING MUSIC' : (this.audio.currentTime > 0 ? '♡ MUSIC PAUSED' : '♡ PRESS PLAY');
     }
-
     this.updateFavoriteUI();
   }
-
   updateFavoriteUI() {
     const song = this.currentSong;
     if (this.favoriteBtn && song) {
@@ -367,10 +297,8 @@ class AudioPlayerController {
       this.favoriteBtn.classList.toggle('is-favorite', !!song.favorite);
     }
   }
-
   syncPlaylistToggleUI() {
     if (!this.playlistCard) return;
-
     if (audioState.isPlaylistOpen) {
       this.playlistCard.classList.remove('collapsed');
       this.playlistCard.classList.add('expanded');
@@ -383,20 +311,15 @@ class AudioPlayerController {
       if (this.playlistToggleBtn) this.playlistToggleBtn.setAttribute('aria-expanded', 'false');
     }
   }
-
   renderPlaylist() {
     if (!this.playlistItemsContainer) return;
-
     this.playlistItemsContainer.innerHTML = '';
-
     audioState.playlist.forEach((song, index) => {
       const isSelected = index === audioState.currentIndex;
       const isPlayingCurrent = isSelected && !this.audio.paused && !this.audio.ended;
-
       const itemEl = document.createElement('div');
       itemEl.className = `playlist-item ${isSelected ? 'selected' : ''}`;
       itemEl.dataset.index = index;
-
       itemEl.innerHTML = `
         <div class="playlist-item-left">
           <img src="${song.cover || 'assets/song-cover.svg'}" alt="${song.title}" class="playlist-item-thumb">
@@ -424,10 +347,7 @@ class AudioPlayerController {
           </button>
         </div>
       `;
-
-      // Click to select song
       itemEl.onclick = (e) => {
-        // If clicking heart button inside playlist item
         if (e.target.closest('.playlist-item-heart-btn')) {
           e.stopPropagation();
           song.favorite = !song.favorite;
@@ -435,26 +355,21 @@ class AudioPlayerController {
           this.renderPlaylist();
           return;
         }
-
         this.selectSong(index, true);
       };
-
       this.playlistItemsContainer.appendChild(itemEl);
     });
   }
-
   updatePlaylistActiveIndicators() {
     const items = this.playlistItemsContainer ? this.playlistItemsContainer.querySelectorAll('.playlist-item') : [];
     items.forEach((item, idx) => {
       const isSelected = idx === audioState.currentIndex;
       const isPlayingCurrent = isSelected && !this.audio.paused && !this.audio.ended;
-
       item.classList.toggle('selected', isSelected);
       const rightCol = item.querySelector('.playlist-item-right');
       if (rightCol) {
         const existingEq = rightCol.querySelector('.playing-equalizer-bars');
         if (existingEq) existingEq.remove();
-
         if (isPlayingCurrent) {
           const eqDiv = document.createElement('div');
           eqDiv.className = 'playing-equalizer-bars';
@@ -469,14 +384,12 @@ class AudioPlayerController {
       }
     });
   }
-
   formatTime(seconds) {
     if (isNaN(seconds) || seconds === null) return "0:00";
     const min = Math.floor(seconds / 60);
     const sec = Math.floor(seconds % 60);
     return `${min}:${sec < 10 ? '0' : ''}${sec}`;
   }
-
   escapeHtml(str) {
     return String(str)
       .replace(/&/g, '&amp;')

@@ -1,8 +1,3 @@
-/* ====================================================================
-   3D ORBITAL CONSTELLATION GALLERY STYLES
-   Theme: Soft Blush & Rose Aesthetic (Matching Song Player Page)
-   ==================================================================== */
-
 body.gallery-standalone-body {
   width: 100%;
   min-height: 100vh;
@@ -15,8 +10,6 @@ body.gallery-standalone-body {
   padding: 0;
   position: relative;
 }
-
-/* Ensure circular back button matches .song-back-btn fixed/accessible upper left */
 .gallery-standalone-body .song-back-btn {
   position: fixed;
   top: 2rem;
@@ -24,8 +17,6 @@ body.gallery-standalone-body {
   z-index: 200;
   text-decoration: none;
 }
-
-/* Header Section */
 .gallery-page-header {
   display: flex;
   flex-direction: column;
@@ -39,20 +30,15 @@ body.gallery-standalone-body {
   box-sizing: border-box;
   z-index: 10;
 }
-
 .gallery-page-header .song-pill-badge {
   margin-bottom: 0.6rem;
 }
-
 .gallery-page-header .song-main-headline {
   margin-bottom: 0.3rem;
 }
-
 .gallery-page-header .song-subtext {
   margin-bottom: 0.5rem;
 }
-
-/* Main Interactive Orbital Stage Area */
 .orbital-gallery-wrapper {
   display: flex;
   align-items: center;
@@ -65,7 +51,6 @@ body.gallery-standalone-body {
   box-sizing: border-box;
   z-index: 10;
 }
-
 .gallery-stage-container {
   position: relative;
   width: 100%;
@@ -80,13 +65,10 @@ body.gallery-standalone-body {
   touch-action: pan-y;
   cursor: grab;
 }
-
 .gallery-stage-container:active,
 .gallery-stage-container.is-dragging {
   cursor: grabbing;
 }
-
-/* 3D Orbit Container for 14 Floating Thumbnails */
 .spherical-orbit-container {
   position: absolute;
   top: 0;
@@ -96,8 +78,6 @@ body.gallery-standalone-body {
   pointer-events: none;
   transform-style: preserve-3d;
 }
-
-/* Individual Orbital Mini Card Thumbnail */
 .spherical-thumb-item {
   position: absolute;
   top: 50%;
@@ -116,7 +96,6 @@ body.gallery-standalone-body {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   will-change: transform, opacity;
 }
-
 .spherical-thumb-item img {
   width: 100%;
   height: 100%;
@@ -125,14 +104,11 @@ body.gallery-standalone-body {
   display: block;
   pointer-events: none;
 }
-
 .spherical-thumb-item:hover {
   border-color: #E968A0;
   box-shadow: 0 12px 28px rgba(233, 104, 160, 0.4), 0 0 20px rgba(244, 114, 182, 0.35);
   transform: scale(1.18) !important;
 }
-
-/* Main Centered 3D Interactive Flip Card Container */
 .main-card-viewport {
   position: relative;
   width: clamp(250px, 36vh, 320px);
@@ -141,7 +117,6 @@ body.gallery-standalone-body {
   z-index: 120;
   margin: 0 auto;
 }
-
 .photo-flip-card {
   width: 100%;
   height: 100%;
@@ -151,12 +126,9 @@ body.gallery-standalone-body {
   transition: transform 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
 }
-
 .photo-flip-card.flipped {
   transform: rotateY(180deg);
 }
-
-/* Front & Back Faces of Main Photo Card */
 .photo-card-front, .photo-card-back {
   position: absolute;
   top: 0;
@@ -171,8 +143,6 @@ body.gallery-standalone-body {
   border: 3px solid #ffffff;
   box-sizing: border-box;
 }
-
-/* Decorative Tape at Top of Main Card */
 .card-top-tape {
   position: absolute;
   top: -10px;
@@ -186,14 +156,11 @@ body.gallery-standalone-body {
   z-index: 10;
   pointer-events: none;
 }
-
-/* Card Front Layout */
 .photo-card-front {
   background: #ffffff;
   display: flex;
   flex-direction: column;
 }
-
 .photo-img-wrap {
   width: 100%;
   height: 78%;
@@ -201,7 +168,6 @@ body.gallery-standalone-body {
   position: relative;
   background: #fce7f3;
 }
-
 .photo-img {
   width: 100%;
   height: 100%;
@@ -209,7 +175,6 @@ body.gallery-standalone-body {
   object-position: center;
   display: block;
 }
-
 .photo-front-footer {
   height: 22%;
   background: linear-gradient(135deg, #fff0f5 0%, #fce7f3 100%);
@@ -219,7 +184,6 @@ body.gallery-standalone-body {
   padding: 0 0.75rem;
   box-sizing: border-box;
 }
-
 .photo-caption-text {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: clamp(1.2rem, 2.4vh, 1.55rem);
@@ -227,8 +191,6 @@ body.gallery-standalone-body {
   text-align: center;
   line-height: 1.15;
 }
-
-/* Cute Romantic LDR Note Card Back */
 .photo-card-back {
   transform: rotateY(180deg);
   background: linear-gradient(135deg, #ffffff 0%, #fff0f5 50%, #fce7f3 100%);
@@ -241,7 +203,6 @@ body.gallery-standalone-body {
   position: relative;
   box-sizing: border-box;
 }
-
 .photo-back-decor-top {
   font-size: 0.82rem;
   color: #E968A0;
@@ -250,14 +211,12 @@ body.gallery-standalone-body {
   font-weight: 600;
   opacity: 0.9;
 }
-
 .photo-back-heart {
   font-size: 2.2rem;
   color: #EC4899;
   margin-bottom: 0.4rem;
   animation: pulse-pink 2s infinite;
 }
-
 .photo-back-message {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: clamp(1.3rem, 2.5vh, 1.7rem);
@@ -268,7 +227,6 @@ body.gallery-standalone-body {
   margin-bottom: 0.5rem;
   width: 100%;
 }
-
 .photo-back-decor-bottom {
   font-size: 0.82rem;
   color: #E968A0;
@@ -276,15 +234,12 @@ body.gallery-standalone-body {
   letter-spacing: 0.15em;
   opacity: 0.9;
 }
-
 .photo-back-hint {
   font-family: var(--font-script, 'Caveat', 'Dancing Script', cursive);
   font-size: 1rem;
   color: #B94F78;
   opacity: 0.85;
 }
-
-/* Navigation Controls Row & Slide Counter Bar (← 01 / 15 →) */
 .gallery-counter-bar {
   display: flex;
   align-items: center;
@@ -295,7 +250,6 @@ body.gallery-standalone-body {
   z-index: 150;
   position: relative;
 }
-
 .photo-counter {
   font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
   font-size: 1.05rem;
@@ -314,8 +268,6 @@ body.gallery-standalone-body {
   align-items: center;
   justify-content: center;
 }
-
-/* Circular Arrow Buttons beside 01 / 15 */
 .nav-arrow-btn {
   width: 42px;
   height: 42px;
@@ -340,7 +292,6 @@ body.gallery-standalone-body {
   padding: 0;
   line-height: 1;
 }
-
 .nav-arrow-btn:hover {
   transform: scale(1.08);
   background: rgba(255, 255, 255, 0.9);
@@ -348,26 +299,19 @@ body.gallery-standalone-body {
   border-color: rgba(236, 72, 153, 0.75);
   box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3), 0 0 12px rgba(244, 114, 182, 0.25);
 }
-
 .nav-arrow-btn:active {
   transform: scale(0.95);
   box-shadow: 0 2px 8px rgba(236, 72, 153, 0.2);
 }
-
-/* Bottom Up Next Section */
 .gallery-up-next-block {
   margin-top: 1rem;
   margin-bottom: 3.5rem;
   z-index: 10;
 }
-
-/* Keyframe Animations */
 @keyframes pulse-pink {
   0%, 100% { transform: scale(1); opacity: 0.9; }
   50% { transform: scale(1.15); opacity: 1; }
 }
-
-/* Responsive Media Queries */
 @media (max-width: 768px) {
   .gallery-page-header {
     padding: 1.5rem 1rem 0.25rem 1rem;
@@ -397,7 +341,6 @@ body.gallery-standalone-body {
     font-size: 1.05rem;
   }
 }
-
 @media (max-width: 480px) {
   .gallery-page-header {
     padding: 1.25rem 1rem 0.2rem 1rem;

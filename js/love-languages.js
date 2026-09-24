@@ -1,11 +1,3 @@
-/**
- * ====================================================================
- * EXACTLY 100 ENRICHED UNIQUE LANGUAGES OF "I LOVE YOU" DATASET
- * Structured, reusable dataset with pronunciation, origin country,
- * country code, flag emoji, and meaning.
- * ====================================================================
- */
-
 const loveLanguages = [
   {
     language: "Spanish",
@@ -920,5 +912,4 @@ const loveLanguages = [
   l: item.language,
   t: item.word
 }));
-
 window.LOVE_LANGUAGES = loveLanguages;

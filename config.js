@@ -1,11 +1,5 @@
-/* scrapbook for loml - configuration
- * bright, cute, pastel pink theme */
-
 const siteConfig = {
-  // her Name
   herName: "Elie",
-
-  // theme accent color scheme
   theme: {
     primaryBg: "#fff0f5",       // lavender blush / pastel pink bg
     secondaryBg: "#fce7f3",     // blush pink card bg
@@ -22,14 +16,11 @@ const siteConfig = {
     serifFont: "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
     scriptFont: "'Caveat', 'Dancing Script', cursive"
   },
-
   background: {
     bgImage: null,
     overlayColor: "rgba(255, 240, 245, 0.85)",
     particlesEnabled: true,
   },
-
-  // SCREEN 1: INTRO CONFIG
   intro: {
     heading: "about this little thing",
     paragraph1: "I've never been very good at putting everything I feel into words, so I made you somewhere I could put all of it instead.",
@@ -37,8 +28,6 @@ const siteConfig = {
     closing: "take your time. there's no rush. every little thing here was made with you in mind. ♡",
     proceedButtonText: "okay, come in →"
   },
-
-  // SCREEN 3: SONG CONFIG
   song: {
     pageTitle: "our song",
     badgeText: "♡ PRESS PLAY",
@@ -51,7 +40,6 @@ const siteConfig = {
     caption: "Play this song while viewing ♡"
   }
 };
-
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = siteConfig;
 }
